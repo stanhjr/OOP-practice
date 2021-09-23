@@ -1,6 +1,5 @@
 import random
 
-
 class Transformers:
     def __init__(self, name: str, modes: str, health: int, armor: int, age: int):
         self.name = name
@@ -10,7 +9,7 @@ class Transformers:
         self.age = age
 
     def get_damaged(self, damage: int) -> float:
-        self.health -= damage * self.armor / 100
+        self.health -= damage * self.armor / 50
 
     def health_info(self):
         return self.health
@@ -22,7 +21,7 @@ class Autobot(Transformers):
                    'you can do better']
 
     def get_info(self):
-        return f"This is {self.name} \ntype: {self.type_race} \nmode: {self.modes} \nheath: {self.health} \narmor: {self.armor} \nage: {self.age}"
+        return f"Im {self.name} \ntype: {self.type_race} \nmode: {self.modes} \nheath: {self.health} \narmor: {self.armor} \nage: {self.age}"
 
     def get_phrase(self):
         return random.choice(self.phrase_list)
@@ -39,14 +38,15 @@ megatron = Decepticon('Megatron', 'Gun', 195, 15, 953)
 side = input('Enter side d/a (Deception/Autobot')
 
 while True:
-    if side == 'd':
+    if side == 'a':
         bot = megatron
         break
-    elif side == 'a':
+    elif side == 'd':
         bot = optimus_prime
         break
     else:
         print('oh no no, please enter d or a')
+        side = input('Enter side d/a (Deception/Autobot')
 
 print(bot.get_info())
 print()
@@ -54,6 +54,10 @@ print()
 while bot.health > 0:
     damage_bot = int(input('Hit me!'))
     bot.get_damaged(damage_bot)
+    if bot.health < 0:
+        print("OVERKILL")
+        break
+
     print(bot.health_info())
     print(bot.get_phrase())
 
