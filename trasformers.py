@@ -1,5 +1,6 @@
 import random
 
+
 class Transformers:
     def __init__(self, name: str, modes: str, health: int, armor: int, age: int):
         self.name = name
@@ -8,8 +9,8 @@ class Transformers:
         self.armor = armor
         self.age = age
 
-    def get_damaged(self, damage: int) -> float:
-        self.health -= damage * self.armor / 50
+    def get_damaged(self, damage: int) -> int:
+        self.health -= int(damage * self.armor / 50)
 
     def health_info(self):
         return self.health
@@ -35,7 +36,7 @@ class Decepticon(Autobot):
 optimus_prime = Autobot('Optimus_Prime', 'truck', 200, 20, 1152)
 megatron = Decepticon('Megatron', 'Gun', 195, 15, 953)
 
-side = input('Enter side d/a (Deception/Autobot')
+side = input('Enter side d/a (Decepticon/Autobot')
 
 while True:
     if side == 'a':
@@ -48,6 +49,7 @@ while True:
         print('oh no no, please enter d or a')
         side = input('Enter side d/a (Deception/Autobot')
 
+print()
 print(bot.get_info())
 print()
 
@@ -58,7 +60,7 @@ while bot.health > 0:
         print("OVERKILL")
         break
 
-    print(bot.health_info())
+    print('Health level = ', bot.health_info())
     print(bot.get_phrase())
 
-print('You Win!')
+print('\nCongrarulation, You Win!')
