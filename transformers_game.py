@@ -9,7 +9,7 @@ class Transformers:
         self.armor = armor
         self.age = age
 
-    def get_damaged(self, damage: int) -> int:
+    def get_damaged(self, damage: int):
         self.health -= int(damage * self.armor / 50)
 
     def health_info(self):
