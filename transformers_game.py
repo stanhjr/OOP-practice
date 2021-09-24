@@ -36,7 +36,7 @@ class Decepticon(Autobot):
 optimus_prime = Autobot('Optimus_Prime', 'truck', 200, 20, 1152)
 megatron = Decepticon('Megatron', 'Gun', 195, 15, 953)
 
-side = input('Enter side d/a (Decepticon/Autobot')
+side = input('Enter side d/a (Decepticon/Autobot)')
 
 while True:
     if side == 'a':
