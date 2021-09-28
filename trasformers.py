@@ -8,14 +8,10 @@ class Transformer:
         self.health = health
         self.armor = armor
 
-
     def get_damaged(self, damage: int) -> int:
         self.health -= int(damage * self.armor / 50)
 
-    def health_info(self):
-        return self.health
-
-    def health_print(self):
+    def print_health(self):
         print('Health level = ', self.health)
 
 
@@ -24,11 +20,9 @@ class Autobot(Transformer):
     phrase_list = ['insidious decepticon!', 'I am the best!', 'on guard for good!', 'Ill kill you!',
                    'you can do better']
 
-    def get_info(self):
-        return f"Im {self.name} \ntype: {self.type_race} \nmode: {self.modes} \nheath: {self.health} \narmor: {self.armor}"
-
-    def get_phrase(self):
-        return random.choice(self.phrase_list)
+    def print_info(self):
+        print(
+            f"Im {self.name} \ntype: {self.type_race} \nmode: {self.modes} \nheath: {self.health} \narmor: {self.armor}")
 
     def print_phrase(self):
         print(random.choice(self.phrase_list))
@@ -56,7 +50,7 @@ while True:
         side = input('Enter side d/a (Deception/Autobot')
 
 print()
-print(bot.get_info())
+bot.print_info()
 print()
 
 while bot.health > 0:
@@ -66,7 +60,7 @@ while bot.health > 0:
         print("OVERKILL!")
         break
 
-    bot.health_print()
+    bot.print_health()
     bot.print_phrase()
 
 print('\nCongrarulation, You Win!')
